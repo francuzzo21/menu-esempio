@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#D94B2B">
+<title>Fuori dal Comune – Menù</title>
+<style>
+  :root {
+    --bg: #f4f2ee;
+    --card: #ffffff;
+    --text: #1c1b19;
+    --muted: #7b776f;
+    --line: rgba(60, 50, 40, .09);
+    --accent: #D94B2B;
+    --accent-soft: #fbe6df;
+    --bar: rgba(244, 242, 238, .78);
+    --chip: rgba(120, 110, 100, .12);
+    --shadow: 0 1px 2px rgba(40, 30, 20, .04), 0 6px 20px rgba(40, 30, 20, .05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121110;
+      --card: #1c1b19;
+      --text: #f4f1ec;
+      --muted: #9b968d;
+      --line: rgba(255, 255, 255, .08);
+      --accent: #F0623F;
+      --accent-soft: #3a1f17;
+      --bar: rgba(18, 17, 16, .72);
+      --chip: rgba(255, 255, 255, .1);
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: calc(env(safe-area-inset-top) + 20px) 0 8px; }
+  .badge {
+    display: inline-block; padding: 4px 12px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 12px; font-weight: 600; letter-spacing: .02em;
+  }
+  h1 { margin: 14px 0 2px; font-size: 38px; line-height: 1.05; font-weight: 800; letter-spacing: -.025em; }
+  .sub { margin: 0; font-size: 18px; color: var(--muted); font-weight: 500; }
+  .info { margin: 14px 0 0; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .info a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+  .daily {
+    margin: 20px 0 6px; padding: 18px 20px; border-radius: 24px;
+    background: linear-gradient(135deg, #E55A38, #C03A1C); color: #fff;
+    box-shadow: 0 8px 24px rgba(217, 75, 43, .28);
+  }
+  .daily small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
+  .daily strong { display: block; margin: 6px 0 4px; font-size: 21px; line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
+  .daily span { font-size: 13px; opacity: .85; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10; margin: 0 -16px; padding: 10px 0;
+    background: var(--bar);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: .5px solid var(--line);
+  }
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 0 16px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips a {
+    flex: none; padding: 8px 16px; border-radius: 999px; background: var(--chip);
+    color: var(--text); font-size: 15px; font-weight: 600; text-decoration: none;
+    transition: background .2s, color .2s;
+  }
+  .chips a.on { background: var(--accent); color: #fff; }
+
+  section { padding-top: 26px; scroll-margin-top: 56px; }
+  h2 { margin: 0 4px 4px; font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+  .note { margin: 0 4px 6px; font-size: 14px; color: var(--muted); }
+  .card { margin-top: 10px; background: var(--card); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; }
+  .item { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 18px; }
+  .item + .item { border-top: .5px solid var(--line); }
+  .name { font-weight: 600; }
+  .ing { margin-top: 2px; font-size: 14px; line-height: 1.35; color: var(--muted); }
+  .price { flex: none; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  footer { padding: 32px 4px calc(env(safe-area-inset-bottom) + 40px); text-align: center; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge">Menù di esempio</span>
+    <h1>Fuori dal Comune</h1>
+    <p class="sub">Pizza al trancio · Buccinasco</p>
+    <p class="info">
+      <span>Via Vittorio Emanuele II 1, Buccinasco</span>
+      <a href="tel:+390284219593">02 8421 9593</a>
+    </p>
+    <div class="daily">
+      <small>Menù del giorno</small>
+      <strong>Oggi: Trancio friarielli + bibita — 9,50 €</strong>
+      <span>Aggiornato ogni giorno</span>
+    </div>
+  </header>
+</div>
+
+<nav><div class="chips" id="chips"></div></nav>
+
+<main class="wrap" id="menu"></main>
+
+<footer class="wrap">Prezzi indicativi presi dal menù online · Allergeni: chiedi al personale</footer>
+
+<script>
+// Formato righe: nome | ingredienti | prezzo
+const base = "pomodoro, mozzarella, origano";
+const MENU = [
+  { id: "classiche", chip: "Classiche", title: "Pizze al trancio", note: "Classiche", rows: `
+Margherita|${base}|7
+Rossa|pomodoro, origano, olio extravergine d'oliva|5.5
+Wurstel|${base} e wurstel|8
+Salame piccante|${base} e salame piccante|8
+Prosciutto cotto|${base} e prosciutto cotto|8
+Gorgonzola|${base} e gorgonzola|8
+'Nduja|${base} e 'nduja|8
+Acciughe|${base} e acciughe|8
+Friarielli|${base} e friarielli|8
+Capricciosa|${base}, carciofini, olive nere e prosciutto cotto|9
+Cotto e funghi|${base}, prosciutto cotto e funghi champignon|9
+Tonno e cipolla|${base}, tonno e cipolle|9
+Gorgonzola e salame piccante|${base}, gorgonzola e salame piccante|9
+Siciliana|${base}, olio extravergine d'oliva, acciughe, capperi e olive|9.5` },
+
+  { id: "speciali", chip: "Speciali", title: "Tranci speciali", rows: `
+Melanzane fritte|${base} e melanzane fritte|8
+Cipolle caramellate|${base} e cipolle caramellate|8
+Gorgonzola e melanzane fritte|${base}, gorgonzola e melanzane fritte|8.5
+Olive taggiasche e cipolle|${base}, olive taggiasche e cipolle|9
+Patate croccanti e cheddar|${base}, patate croccanti al forno e cheddar|9
+Gorgonzola e pomodori secchi|${base}, gorgonzola e pomodori secchi|9
+Tonno e olive taggiasche|${base}, tonno e olive taggiasche|9
+Gorgonzola e cipolle caramellate|${base}, gorgonzola e cipolle caramellate|9
+4 Stagioni|${base}, carciofi, funghi champignon, olive e prosciutto cotto|10
+4 Formaggi|${base}, formaggi|10` },
+
+  { id: "teglia", chip: "Teglia", title: "Pizze in teglia", note: "Teglia intera, per 4–6 persone", rows: `
+Rossa|pomodoro, origano e olio extravergine d'oliva|30
+Margherita|${base}|35
+Friarielli|${base} e friarielli|48
+Prosciutto cotto|${base} e prosciutto cotto|48
+Salame piccante|${base} e salame piccante|48
+Wurstel|${base} e wurstel|48
+Acciughe|${base} e acciughe|48
+Gorgonzola|${base} e gorgonzola|48
+'Nduja|${base} e 'nduja|48
+Capricciosa|${base}, carciofini, olive nere e prosciutto cotto|54
+Tonno e cipolla|${base}, tonno e cipolle|54
+Cotto e funghi|${base}, prosciutto cotto e funghi champignon|54
+Gorgonzola piccante|${base}, gorgonzola e salame piccante|54
+Siciliana|pomodoro, origano, olio extravergine d'oliva, acciughe, capperi e olive|57` },
+
+  { id: "fritti", chip: "Fritti", title: "Fritti", rows: `
+Mozzarelline fritte 8 pz||4
+Mozzarelle in carrozza 2 pz||4
+Panzerotto maxi cotto e mozzarella||4
+Panzerottini pomodoro e mozzarella 5 pz||4
+Panzerottini cotto e mozzarella 5 pz||4
+Polpette di melanzane 5 pz||4
+Crocchette di patate 6 pz||4
+Olive all'ascolana 5 pz||4
+Arancino al ragù||4
+Arancino bianco cotto e mozzarella||4
+Nuggets di pollo 6 pz||4
+Supplì pomodoro e mozzarella 6 pz||5
+Crocchè prosciutto e formaggio 6 pz||5
+Patatine fritte 300 g||5
+Patatine fritte con cheddar 300 g||5.5
+Bastoncini di mozzarella 8 pz||6
+Nuggets di pollo 9 pz||6
+Fiori di zucca 3 pz||6` },
+
+  { id: "bevande", chip: "Bevande", title: "Bevande", rows: `
+Acqua naturale 50 cl||1.5
+Acqua frizzante 50 cl||1.5
+Coca-Cola 33 cl||3
+Coca-Cola Zero 33 cl||3
+Fanta 33 cl||3
+Sprite 33 cl||3` },
+
+  { id: "birre", chip: "Birre", title: "Birre", rows: `
+Birra 33 cl||4
+Moretti 66 cl||5` }
+];
+
+const euro = n => n.toFixed(2).replace(".", ",") + " €";
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+document.getElementById("chips").innerHTML = MENU.map(s => `<a href="#${s.id}" data-id="${s.id}">${s.chip}</a>`).join("");
+
+document.getElementById("menu").innerHTML = MENU.map(s => {
+  const items = s.rows.trim().split("\n").map(line => {
+    const [name, ing, price] = line.split("|");
+    return `<div class="item"><div><div class="name">${esc(name)}</div>${ing ? `<div class="ing">${esc(ing)}</div>` : ""}</div><div class="price">${euro(+price)}</div></div>`;
+  }).join("");
+  return `<section id="${s.id}"><h2>${s.title}</h2>${s.note ? `<p class="note">${s.note}</p>` : ""}<div class="card">${items}</div></section>`;
+}).join("");
+
+// Evidenzia la categoria visibile
+const chips = [...document.querySelectorAll(".chips a")];
+const sections = MENU.map(s => document.getElementById(s.id));
+function setActive() {
+  const y = window.scrollY + 90;
+  let cur = sections[0];
+  sections.forEach(sec => { if (sec.offsetTop <= y) cur = sec; });
+  if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) cur = sections[sections.length - 1];
+  chips.forEach(c => {
+    const on = c.dataset.id === cur.id;
+    c.classList.toggle("on", on);
+    if (on) {
+      const box = c.parentElement;
+      box.scrollTo({ left: c.offsetLeft - (box.clientWidth - c.offsetWidth) / 2, behavior: "smooth" });
+    }
+  });
+}
+let t;
+window.addEventListener("scroll", () => { cancelAnimationFrame(t); t = requestAnimationFrame(setActive); }, { passive: true });
+setActive();
+</script>
+</body>
+</html>
